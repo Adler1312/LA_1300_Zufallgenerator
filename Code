@@ -1,0 +1,60 @@
+using System;
+
+namespace Lernatelier2_1300
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string eing;
+            int geraten;
+            int geheim;
+            int versuche = 0;
+            Random zufall = new Random();
+            geheim = zufall.Next(101);
+            do
+            {
+                Console.Write("Zahl eingeben (0-100): ");
+                eing = Console.ReadLine();
+                geraten = Convert.ToInt32(eing);
+                if (geraten < 0)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Die Zahl ist ungültig");
+                    Console.ResetColor();
+                }
+                if (geraten > 100)
+                {
+                    Console.BackgroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Die Zahl ist ungültig");
+                    Console.ResetColor();
+                }
+                if (geraten < geheim)
+                {
+                    Console.WriteLine("Eingabe zu klein");
+                    Console.WriteLine("--------------------------------");
+                }
+                if (geraten > geheim)
+                {
+                    Console.WriteLine("Eingabe zu groß");
+                    Console.WriteLine("--------------------------------");
+                }
+                versuche = versuche + 1;
+            } while (geraten != geheim && versuche < 17);
+
+            if (geraten == geheim)
+            {
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.WriteLine("Super! Du hast nur " + versuche
+                + " Versuche benötigt");
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.WriteLine("Verloren es wäre " + geheim
+                    + " gewesen!");
+            }
+            Console.ReadKey();
+        }
+    }
+}
