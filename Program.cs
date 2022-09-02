@@ -40,19 +40,18 @@ namespace Lernatelier2_1300
                     Console.WriteLine("--------------------------------");
                 }
                 versuche = versuche + 1;
-            } while (geraten != geheim && versuche < 20);
+            } while (geraten != geheim && versuche < 100);
 
             if (geraten == geheim)
             {
                 Console.BackgroundColor = ConsoleColor.Green;
-                Console.WriteLine("Super! Du hast nur " + versuche
+                Console.WriteLine("Gut gemacht! Du hast nur " + versuche
                 + " Versuche benötigt");
                 Console.ResetColor();
             }
             else
             {
-                Console.WriteLine("Verloren es wäre " + geheim
-                    + " gewesen!");
+                Console.WriteLine("Verloren du hast es nicht geschaft");
             }
             Console.ReadKey();
         }
